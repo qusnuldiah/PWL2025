@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('subtitle', 'Kategori')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Kategori')
+@section('content_header_title', 'Kategori')
+@section('content_header_subtitle', 'Manage Kategori')
 
 @section('content')
     <div class="container">
@@ -18,33 +18,31 @@
     </div>
 @endsection
 
-<script>
-    $(document).ready(function() {
-        $(document).on('click', '.delete-btn', function() {
-            let id = $(this).data('id');
-            
-            if (confirm('Apakah Anda yakin ingin menghapus kategori ini?')) {
-                $.ajax({
-                    url: "{{ url('kategori') }}/" + id,
-                    type: 'POST',
-                    data: {
-                        _method: 'DELETE',
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        alert(response.success);
-                        $("#row-" + id).remove();
-                    },
-                    error: function(xhr) {
-                        alert('Gagal menghapus kategori!');
-                    }
-                });
-            }
-        });
-    });
-    </script>
-    
-@push('scripts')
+@push('js')
     {{ $dataTable->scripts() }}
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '.delete-btn', function() {
+                let id = $(this).data('id');
+                
+                if (confirm('Apakah Anda yakin ingin menghapus kategori ini?')) {
+                    $.ajax({
+                        url: "{{ url('kategori') }}/" + id,
+                        type: 'POST',
+                        data: {
+                            _method: 'DELETE',
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            alert(response.success);
+                            $('#kategori-table').DataTable().ajax.reload(); // Reload DataTable
+                        },
+                        error: function(xhr) {
+                            alert('Gagal menghapus kategori!');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endpush
-
