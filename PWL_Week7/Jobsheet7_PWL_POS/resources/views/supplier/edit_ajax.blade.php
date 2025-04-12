@@ -24,7 +24,7 @@
          <div id="modal-master" class="modal-dialog modal-lg" role="document">
              <div class="modal-content">
                  <div class="modal-header">
-                     <h5 class="modal-title" id="exampleModalLabel">Edit Data upplier</h5>
+                     <h5 class="modal-title" id="exampleModalLabel">Edit Data Supplier</h5>
  
                      <button type="button" class="close" data-dismiss="modal" aria- label="Close"><span
                              aria-hidden="true">&times;</span></button>
@@ -32,7 +32,7 @@
                  </div>
                  <div class="modal-body">
                      <div class="form-group">
-                         <label>upplier Kode</label>
+                         <label>Supplier Kode</label>
                          <input value="{{ $supplier->supplier_kode }}" type="text" name="supplier_kode" id="supplier_kode"
                              class="form-control" required>
  
