@@ -61,7 +61,7 @@
         <div class="row">
           <div class="col-8">
             <div class="icheck-primary">
-              <input type="checkbox" id="remember"><label for="remember">Remember Me</label>
+              <input type="checkbox" id="remember" name="remember"><label for="remember">Remember Me</label>
             </div>
           </div>
           <!-- /.col -->
@@ -71,6 +71,9 @@
           <!-- /.col -->
         </div>
       </form>
+      <div class="mt-3 text-center">
+        <a href="{{ route('register') }}" class="btn btn-outline-primary btn-block mt-2">Daftar Akun Baru</a>
+      </div>  
     </div>
     <!-- /.card-body -->
   </div>

@@ -57,4 +57,9 @@ class AuthController extends Controller
 
         return redirect('login')->with('success', 'Anda berhasil logout.');
     }
+
+    public function username()
+    {
+        return 'username';
+    }
 }
